@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
 import { StyleSheet, View } from 'react-native';
 import RestoList from './src/RestoList';
+import { getResto } from './src/api-client';
 
 export default class App extends Component {
+  componentDidMount() {
+    getResto()
+  }
     render() {
       const resto = {
         image: 'https://blog.restorando.com/wp-content/uploads/2017/10/osso.jpg',
