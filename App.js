@@ -1,33 +1,18 @@
 import React, {Component} from 'react';
-import { StyleSheet, View } from 'react-native';
-import RestoList from './src/RestoList';
-import { getResto } from './src/api-client';
+import { StyleSheet, View, Platform } from 'react-native';
+import {Scene, Router} from 'react-native-router-flux'
+import HomeView from './src/HomeView';
+import RestoDetailView from './src/RestoDetailView';
 
 export default class App extends Component {
-  componentDidMount() {
-    getResto()
-  }
     render() {
-      const resto = {
-        image: 'https://blog.restorando.com/wp-content/uploads/2017/10/osso.jpg',
-        name: 'Comida de Sueños',
-        likes: 200,
-        comments: 140,
-      }
-      const restos = Array(500).fill(resto)
+      const isAndroid = Platform.OS === 'android'
 
-      return (
-        <View style={styles.container}>
-          <RestoList restos={restos} />
-        </View>
-      );
+      return <Router>
+        <Scene key="root">
+          <Scene key="home" component={HomeView} title="Home" hideNavBar/>
+          <Scene key="restoDetail" component={RestoDetailView} hideNavBar={isAndroid} />
+        </Scene>
+      </Router>
     }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'lightgray',
-    paddingTop: 50,
-  }
-});

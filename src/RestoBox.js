@@ -6,7 +6,8 @@ import { Ionicons } from '@expo/vector-icons';
 export default class RestoBox extends Component {
 //export default function RestoBox() {
   render() {
-    const { image, name, likes, comments } = this.props.restos
+    const { name, image, likes, comments } = this.props.restos
+
     return (
       <View style={styles.restoBox}>
         <Image style={styles.image} source={{uri: image}} />
