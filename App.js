@@ -9,6 +9,7 @@ export default class App extends Component {
       const isAndroid = Platform.OS === 'android'
 
       return <Router>
+        <Scene key="login" component={LoginView} title="Login" hideNavBar/>
         <Scene key="root">
           <Scene key="home" component={HomeView} title="Home" hideNavBar/>
           <Scene key="restoDetail" component={RestoDetailView} hideNavBar={isAndroid} />
