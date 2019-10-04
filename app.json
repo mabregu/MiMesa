@@ -30,11 +30,13 @@
     "extra": {
       "firebase": {
         "apiKey": "AIzaSyBhu-FD-Qa-PkL087zsIidGxEBJgUg_Vzc",
-        "authDomain": "https://mimesa-c4f4d.firebaseapp.com",
+        "authDomain": "mimesa-c4f4d.firebaseapp.com",
         "databaseURL": "https://mimesa-c4f4d.firebaseio.com",
         "projectId": "mimesa-c4f4d",
-        "storageBucket": "",
-        "messagingSenderId": ""
+        "storageBucket": "mimesa-c4f4d.appspot.com",
+        "messagingSenderId": "543766226162",
+        "appId": "1:543766226162:web:3d7595d3732aff0a031c6b",
+        "measurementId": "G-QSPHKHF0T5",
       },
       "facebook": {
         "appId": "370677173838927"
