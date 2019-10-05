@@ -1,1 +1,1 @@
-export const YELP_KEY = "o7Rti7ivJuE4V4UNLD74oyOsYieLF1rIndI7QmmNsJMbxmW5Dpt6doo_QIrI9t-1rWKHOXmxVLt_T7efdT5KQ2Rh1qseHfsG9qUOBljxwtCzKd3S7XxU0SdaWSZ6XXYx";
+export const YELP_KEY = "";

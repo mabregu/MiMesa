@@ -26,18 +26,20 @@
     "ios": {
       "supportsTablet": true
     },
-    "facebookScheme": "fb370677173838927",
+    "facebookScheme": "",
     "extra": {
       "firebase": {
-        "apiKey": "AIzaSyBhu-FD-Qa-PkL087zsIidGxEBJgUg_Vzc",
-        "authDomain": "https://mimesa-c4f4d.firebaseapp.com",
-        "databaseURL": "https://mimesa-c4f4d.firebaseio.com",
-        "projectId": "mimesa-c4f4d",
+        "apiKey": "",
+        "authDomain": "",
+        "databaseURL": "",
+        "projectId": "",
         "storageBucket": "",
-        "messagingSenderId": ""
+        "messagingSenderId": "",
+        "appId": "",
+        "measurementId": "",
       },
       "facebook": {
-        "appId": "370677173838927"
+        "appId": ""
       },
     }
   }
