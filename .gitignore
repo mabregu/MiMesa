@@ -10,3 +10,5 @@ npm-debug.*
 web-build/
 web-report/
 app.json
+yarn.lock 
+package-lock.json
