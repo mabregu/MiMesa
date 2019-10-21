@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "En MiMesa valoramos tu tiempo, sentate y disfruta de una mesa servida con Amor",
+    "name": "MiMesa",
     "slug": "mimesa",
     "privacy": "public",
     "sdkVersion": "35.0.0",
@@ -9,6 +9,9 @@
       "android",
       "web"
     ],
+    "android": {
+      "package": "com.mabregu.mimesa"
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -26,20 +29,20 @@
     "ios": {
       "supportsTablet": true
     },
-    "facebookScheme": "",
+    "facebookScheme": "fb370677173838927",
     "extra": {
       "firebase": {
-        "apiKey": "",
-        "authDomain": "",
-        "databaseURL": "",
-        "projectId": "",
-        "storageBucket": "",
-        "messagingSenderId": "",
-        "appId": "",
-        "measurementId": "",
+        "apiKey": "AIzaSyBhu-FD-Qa-PkL087zsIidGxEBJgUg_Vzc",
+        "authDomain": "mimesa-c4f4d.firebaseapp.com",
+        "databaseURL": "https://mimesa-c4f4d.firebaseio.com",
+        "projectId": "mimesa-c4f4d",
+        "storageBucket": "mimesa-c4f4d.appspot.com",
+        "messagingSenderId": "543766226162",
+        "appId": "1:543766226162:web:3d7595d3732aff0a031c6b",
+        "measurementId": "G-QSPHKHF0T5",
       },
       "facebook": {
-        "appId": ""
+        "appId": "370677173838927"
       },
     }
   }

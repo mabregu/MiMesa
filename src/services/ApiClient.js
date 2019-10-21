@@ -24,6 +24,7 @@ function getResto() {
     .then(data => data.businesses)
     .then(businesses => businesses.map(businesse => {
       return {
+        id: businesse.id,
         name: businesse.name,
         image: businesse.image_url,
         likes: 200,

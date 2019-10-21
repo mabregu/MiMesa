@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import { StyleSheet, ListView, TouchableOpacity } from 'react-native';
-import RestoBox from './RestoBox';
-import {Actions} from 'react-native-router-flux'
+import { StyleSheet, ListView } from 'react-native';
+import Comment from './Comment'
 
-//export default function App() {
-export default class RestoList extends Component {
+export default class CommentList extends Component {
     constructor(props) {
       super(props);
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -14,12 +12,12 @@ export default class RestoList extends Component {
     }
 
     componentDidMount() {
-      this.updateDataSource(this.props.restos)
+      this.updateDataSource(this.props.comments)
     }
 
     componentWillReceiveProps(newProps) {
-      if (newProps.restos !== this.props.restos) {
-        this.updateDataSource(newProps.restos)
+      if (newProps.comments !== this.props.comments) {
+        this.updateDataSource(newProps.comments)
       }
     }
 
@@ -29,22 +27,16 @@ export default class RestoList extends Component {
       })
     }
 
-    handlePress(resto) {
-      //console.warn(resto);
-      Actions.restoDetail({ resto })
-    }
-
     render() {
       return (
         <ListView
           enableEmptySections={true}
           dataSource={this.state.dataSource}
-          renderRow={(restos) => (
-            <TouchableOpacity
-              onPress={() => this.handlePress(restos)}>
-              <RestoBox restos={restos} />
-            </TouchableOpacity>
-          )}
+          renderRow={(comment) => {
+            return (
+              <Comment text={comment.text} avatar={comment.userPhoto} />
+            )
+          }}
         />
       );
     }
