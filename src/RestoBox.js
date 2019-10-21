@@ -8,7 +8,8 @@ export default class RestoBox extends Component {
 //export default function RestoBox() {
   state = {
     liked: false,
-    likeCount: 0
+    likeCount: 0,
+    commentCount: 0,
   }
 
   componentWillMount() {
@@ -18,6 +19,7 @@ export default class RestoBox extends Component {
       if (resto) {
         this.setState({
           likeCount: resto.likeCount,
+          commentCount: resto.commentCount,
           liked: resto.likes && resto.likes[uid]
         })
       }
@@ -63,6 +65,10 @@ export default class RestoBox extends Component {
     const likeIcon = this.state.liked ?
       <Ionicons name="md-heart" size={32} color="#e74c3c" /> :
       <Ionicons name="md-heart-empty" size={32} color="gray" />
+    const commentIcon = this.state.commented ?
+      <Ionicons name="md-chatbubbles" size={32} color="blue" /> :
+      <Ionicons name="md-chatbubbles" size={32} color="gray" />
+
     const { likeCount } = this.state
     return (
       <View style={styles.restoBox}>

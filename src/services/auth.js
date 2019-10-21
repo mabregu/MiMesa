@@ -3,7 +3,7 @@ import * as Facebook from 'expo-facebook';
 
 async function signInWithFacebook() {
   const appId = Expo.Constants.manifest.extra.facebook.appId;
-  const permissions = ['public_profile', 'email', 'user_friends'];  // Permissions required, consult Facebook docs
+  const permissions = ['public_profile', 'email'];  // Permissions required, consult Facebook docs
   const { type, token } = await Facebook.logInWithReadPermissionsAsync(appId,{permissions});
 
   switch (type) {
