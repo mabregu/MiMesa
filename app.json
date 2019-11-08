@@ -39,11 +39,13 @@
         "storageBucket": "mimesa-c4f4d.appspot.com",
         "messagingSenderId": "543766226162",
         "appId": "1:543766226162:web:3d7595d3732aff0a031c6b",
-        "measurementId": "G-QSPHKHF0T5",
+        "measurementId": "G-QSPHKHF0T5"
       },
       "facebook": {
         "appId": "370677173838927"
-      },
-    }
+      }
+    },
+    "description": "Apliacción para reservar un lugar en tu restaurante favorito",
+    "githubUrl": "https://github.com/mabregu/MiMesa"
   }
 }

@@ -3,7 +3,7 @@ import {
   StyleSheet, Text, View, Alert, Image, ActivityIndicator
 } from 'react-native';
 import { SocialIcon, Header, Button } from 'react-native-elements'
-import { signInWithFacebook } from '../services/auth';
+import { signInWithFacebook, signInWithGoogleAsync } from '../services/auth';
 import firebase, { firebaseAuth } from '../services/firebase'
 import {Actions} from 'react-native-router-flux'
 
@@ -11,6 +11,17 @@ import {Actions} from 'react-native-router-flux'
 export default class LoginView extends Component {
     state = {
       userInfo: null
+    }
+
+    checkIfLoggedIn = () => {
+      firebaseAuth.onAuthStateChanged((user) => {
+        if (user) {
+          this.setState({
+            userInfo: user
+          })
+          Actions.home()
+        }
+      })
     }
 
     handlePress() {
@@ -21,15 +32,16 @@ export default class LoginView extends Component {
         })
     }
 
+    handlePressGoogle() {
+      signInWithGoogleAsync()
+        .then(data => {
+          if(data.type == 'success')
+            Actions.home()
+        })
+    }
+
     componentDidMount() {
-      firebaseAuth.onAuthStateChanged((user) => {
-        if (user != null) {
-          this.setState({
-            userInfo: user
-          })
-          console.log("We are authenticated now!");
-        }
-      })
+      this.checkIfLoggedIn()
     }
 
     render() {
@@ -46,7 +58,7 @@ export default class LoginView extends Component {
             />
           <SocialIcon
             title='Google'
-            onPress={() => Alert.alert('Falta integrar login')}
+            onPress={() => this.handlePressGoogle()}
             button
             type='google'
             />
@@ -59,12 +71,13 @@ export default class LoginView extends Component {
 
           <Image
             source={{uri: 'http://flaviatuteacher.com/img/restaurant.png'}}
-            PlaceholderContent={<ActivityIndicator />}
+            PlaceholderContent={<ActivityIndicator size="large" color="#27ae60" />}
             style={styles.mesa}
           />
 
           <SocialIcon
             title='Registrarme'
+            onPress={() => Alert.alert('Falta integrar registro')}
             button
             style={{backgroundColor: 'black'}}
           />
@@ -83,8 +96,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'center',
-    marginHorizontal: 50,
-    height: 250,
-    width: 250,
+    marginHorizontal: 5,
+    width: 350,
   }
 });

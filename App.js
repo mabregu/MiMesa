@@ -4,6 +4,8 @@ import {Scene, Router, Actions} from 'react-native-router-flux'
 import HomeView from './src/screens/HomeView';
 import LoginView from './src/screens/LoginView';
 import RestoDetailView from './src/RestoDetailView';
+import ReserveView from './src/ReserveView';
+import MercadoPagoView from './src/MercadoPagoView';
 import { Ionicons } from '@expo/vector-icons';
 import { firebaseAuth } from './src/services/firebase'
 
@@ -34,6 +36,20 @@ export default class App extends Component {
             key="restoDetail"
             component={RestoDetailView}
             title='Comentarios'
+            hideNavBar={false}
+            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
+          />
+          <Scene
+            key="reserve"
+            component={ReserveView}
+            title='Reservando'
+            hideNavBar={false}
+            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
+          />
+          <Scene
+            key="mp"
+            component={MercadoPagoView}
+            title='Pagá tu reserva'
             hideNavBar={false}
             renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
           />

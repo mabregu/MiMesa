@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Platform, Alert } from 'react-native';
+import { StyleSheet, View, Text, TextInput, Image, TouchableOpacity, Platform, Alert } from 'react-native';
 import RestoBox from './RestoBox';
 import CommentList from './CommentList';
 import { getResto } from './services/ApiClient';
 import { Ionicons } from '@expo/vector-icons';
 import { firebaseDatabase, firebaseAuth } from './services/firebase'
+import {Actions} from 'react-native-router-flux'
 
 export default class RestoDetailView extends Component {
     state = {
@@ -51,6 +52,11 @@ export default class RestoDetailView extends Component {
     }
 
     handleChangeText = (text) => this.setState({text})
+
+    handleReserve = () => {
+      Actions.reserve()
+    }
+
     render() {
       const restos = this.props.resto
       const { comments } = this.state
@@ -58,6 +64,9 @@ export default class RestoDetailView extends Component {
       return (
         <View style={styles.container}>
           <RestoBox restos={restos} />
+          <TouchableOpacity onPress={this.handleReserve}>
+            <Image source={require('./img/RESERVAR.png')} style={styles.reserva} />
+          </TouchableOpacity>
           <CommentList comments={comments} />
           <View style={styles.inputContainer}>
             <TextInput
@@ -100,5 +109,11 @@ const styles = StyleSheet.create({
   input: {
     height: 50,
     flex: 1
+  },
+  reserva: {
+    width: 370,
+    height: 70,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
