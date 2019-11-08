@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, Platform } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Platform, Alert } from 'react-native';
 import RestoBox from './RestoBox';
 import CommentList from './CommentList';
 import { getResto } from './services/ApiClient';
@@ -32,14 +32,17 @@ export default class RestoDetailView extends Component {
       const restoCommentsRef = this.getRestoCommentsRef()
       const { uid, photoURL } = firebaseAuth.currentUser
 
-      var newCommentRef = restoCommentsRef.push()
-      newCommentRef.set({
-        text,
-        userPhoto: photoURL,
-        uid,
-      })
-
-      this.setState({ text: '' })
+      if (text != '') {
+        var newCommentRef = restoCommentsRef.push()
+        newCommentRef.set({
+          text,
+          userPhoto: photoURL,
+          uid,
+        })
+        this.setState({ text: '' })
+      } else {
+        Alert.alert('No escribiste nada!')
+      }
     }
 
     getRestoCommentsRef = () => {

@@ -3,24 +3,22 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { firebaseDatabase, firebaseAuth } from './services/firebase'
 
-//const { image, name, likes, comments } = this.props.restos
 export default class RestoBox extends Component {
-//export default function RestoBox() {
   state = {
     liked: false,
     likeCount: 0,
-    commentCount: 0,
+    commented: false,
+    commentCount: 0
   }
 
   componentWillMount() {
-    const { uid } = firebaseAuth.currentUser.uid
+    const { uid } = firebaseAuth.currentUser
     this.getRestoRef().on('value', snapshot => {
       const resto = snapshot.val()
       if (resto) {
         this.setState({
           likeCount: resto.likeCount,
-          commentCount: resto.commentCount,
-          liked: resto.likes && resto.likes[uid]
+          liked: resto.likes && resto.likes[uid],
         })
       }
     })
@@ -37,7 +35,8 @@ export default class RestoBox extends Component {
   }
 
   toggleLike = (liked) => {
-    const { uid } = firebaseAuth.currentUser.uid
+    const { uid } = firebaseAuth.currentUser
+
     this.getRestoRef().transaction(function(resto) {
       if (resto) {
         if (resto.likes && resto.likes[uid]) {
@@ -65,11 +64,9 @@ export default class RestoBox extends Component {
     const likeIcon = this.state.liked ?
       <Ionicons name="md-heart" size={32} color="#e74c3c" /> :
       <Ionicons name="md-heart-empty" size={32} color="gray" />
-    const commentIcon = this.state.commented ?
-      <Ionicons name="md-chatbubbles" size={32} color="blue" /> :
-      <Ionicons name="md-chatbubbles" size={32} color="gray" />
-
     const { likeCount } = this.state
+    const { commentCount } = 5
+
     return (
       <View style={styles.restoBox}>
         <Image style={styles.image} source={{uri: image}} />
@@ -84,7 +81,7 @@ export default class RestoBox extends Component {
             </View>
             <View style={styles.iconContainer}>
               <Ionicons name="md-chatbubbles" size={32} color="gray" />
-              <Text style={styles.count}>{comments}</Text>
+              <Text style={styles.count}>{commentCount}</Text>
             </View>
           </View>
         </View>
