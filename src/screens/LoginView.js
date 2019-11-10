@@ -19,7 +19,7 @@ export default class LoginView extends Component {
           this.setState({
             userInfo: user
           })
-          Actions.home()
+          Actions.categoria()
         }
       })
     }
@@ -28,7 +28,8 @@ export default class LoginView extends Component {
       signInWithFacebook()
         .then(data => {
           if(data.type == 'success')
-            Actions.home()
+            //Actions.home()
+            Actions.categoria()
         })
     }
 
@@ -36,7 +37,8 @@ export default class LoginView extends Component {
       signInWithGoogleAsync()
         .then(data => {
           if(data.type == 'success')
-            Actions.home()
+            Actions.categoria()
+            //Actions.home()
         })
     }
 

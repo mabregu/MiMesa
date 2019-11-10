@@ -105,6 +105,9 @@ const styles = StyleSheet.create({
       height: 1,
       width: -2,
     },
+    borderColor: '#cccccc',
+    borderWidth: 0.5,
+    borderRadius: 20,
     elevation: 2,
   },
   info: {

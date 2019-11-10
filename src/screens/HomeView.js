@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, ActivityIndicator, Platform } from 'react-native';
+import { StyleSheet, View, ActivityIndicator, Platform, Text } from 'react-native';
 import RestoList from '../RestoList';
 import { getResto } from '../services/ApiClient';
 
 export default class HomeView extends Component {
+    constructor(props) {
+      super(props);
+    }
+
     _isMounted = false
 
     state = {
@@ -12,7 +16,7 @@ export default class HomeView extends Component {
 
     componentDidMount() {
       this._isMounted = true
-      getResto()
+      getResto(this.props.data)
       .then(data => {
         if (this._isMounted) {
           this.setState({
@@ -41,6 +45,9 @@ export default class HomeView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    borderColor: '#cccccc',
+    borderWidth: 0.5,
+    borderRadius: 20,
     backgroundColor: 'lightgray',
     paddingTop: Platform.select({
       ios: 30,

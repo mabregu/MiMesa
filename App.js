@@ -6,6 +6,7 @@ import LoginView from './src/screens/LoginView';
 import RestoDetailView from './src/RestoDetailView';
 import ReserveView from './src/ReserveView';
 import MercadoPagoView from './src/MercadoPagoView';
+import CategoriesScreen from './src/screens/Categories/CategoriesScreen';
 import { Ionicons } from '@expo/vector-icons';
 import { firebaseAuth } from './src/services/firebase'
 
@@ -25,17 +26,24 @@ export default class App extends Component {
         <Scene key="root">
           <Scene key="login" component={LoginView} title="Login" hideNavBar/>
           <Scene
-            key="home"
-            component={HomeView}
-            title='Lista de Restaurantes'
+            key="categoria"
+            component={CategoriesScreen}
+            title='Categorias'
             hideNavBar={false}
             type={'reset'}
             renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
           />
           <Scene
+            key="home"
+            component={HomeView}
+            title='Elegí adonde ir'
+            hideNavBar={false}
+            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
+          />
+          <Scene
             key="restoDetail"
             component={RestoDetailView}
-            title='Comentarios'
+            title='Detalle'
             hideNavBar={false}
             renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
           />
