@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Button, Share } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { firebaseDatabase, firebaseAuth } from './services/firebase'
 
@@ -30,7 +30,7 @@ export default class RestoBox extends Component {
   }
 
   getRestoRef = () => {
-    const { id } = this.props.restos
+    const { id } = this.props.restos.item
     return firebaseDatabase.ref(`resto/${id}`)
   }
 
@@ -59,8 +59,29 @@ export default class RestoBox extends Component {
     });
   }
 
+  onShare = async () => {
+    const msj = "Tenes que conocer MiMesa es increible, reservas tu mesa en el lugar que vos elijas ir! te dejo el link para que pruebes la App ;) https://expo.io/@mabregu/mimesa"
+    try {
+      const result = await Share.share({
+        message: msj,
+      });
+
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   render() {
-    const { name, image, likes, comments } = this.props.restos
+    const { name, image, likes, comments, url } = this.props.restos.item
     const likeIcon = this.state.liked ?
       <Ionicons name="md-heart" size={32} color="#e74c3c" /> :
       <Ionicons name="md-heart-empty" size={32} color="gray" />
@@ -83,6 +104,9 @@ export default class RestoBox extends Component {
               <Ionicons name="md-chatbubbles" size={32} color="gray" />
               <Text style={styles.count}>{commentCount}</Text>
             </View>
+            <TouchableOpacity onPress={this.onShare}>
+              <Ionicons name="md-share" size={32} />
+            </TouchableOpacity>
           </View>
         </View>
       </View>

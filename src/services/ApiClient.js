@@ -28,6 +28,7 @@ function getResto(categoria) {
         id: businesse.id,
         name: businesse.name,
         image: businesse.image_url,
+        url: businesse.url,
         likes: 200,
         comments: 140,
       }

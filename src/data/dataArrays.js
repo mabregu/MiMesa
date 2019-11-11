@@ -32,12 +32,6 @@ export const categories = [
     photo_url:
     'https://images.askmen.com/1080x540/2019/03/26-052442-man_goes_on_beer_only_diet_loses_25_pounds.jpg'
   },
-  {
-    id: 6,
-    name: 'Batidos',
-    photo_url:
-    'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/still-life-of-three-fresh-smoothies-in-front-of-royalty-free-image-561093647-1544042068.jpg?crop=0.715xw:0.534xh;0.0945xw,0.451xh&resize=768:*'
-  },
 ];
 
 export const recipes = [

@@ -47,7 +47,7 @@ export default class RestoDetailView extends Component {
     }
 
     getRestoCommentsRef = () => {
-      const { id } = this.props.resto
+      const { id } = this.props.resto.item
       return firebaseDatabase.ref(`comments/${id}`)
     }
 
