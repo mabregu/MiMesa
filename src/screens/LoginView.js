@@ -72,7 +72,7 @@ export default class LoginView extends Component {
             />
 
           <Image
-            source={{uri: 'http://flaviatuteacher.com/img/restaurant.png'}}
+            source={{uri: 'http://flaviatuteacher.com/img/resta.png'}}
             PlaceholderContent={<ActivityIndicator size="large" color="#27ae60" />}
             style={styles.mesa}
           />
@@ -96,9 +96,8 @@ const styles = StyleSheet.create({
   mesa: {
     flex:1,
     flexDirection:'row',
-    alignItems:'center',
-    justifyContent:'center',
     marginHorizontal: 5,
-    width: 350,
+    justifyContent:'center',
+    alignItems:'center',
   }
 });

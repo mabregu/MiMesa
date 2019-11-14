@@ -42,10 +42,14 @@ export default class App extends Component {
         <Text style={{fontSize: 20,textAlign: 'center'}}>
           Luego de poner la fecha, podes pagar para confirmar Tu Mesa ;)
         </Text>
-        <Button title={this.state.dateText} onPress={() => this.showDatePicker({date: this.state.date})}/>
-        <TouchableOpacity onPress={this.handlePaga}>
-          <Ionicons name="md-card" size={80} />
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity onPress={() => this.showDatePicker({date: this.state.date})}>
+            <Ionicons name="md-calendar" size={80} />            
+          </TouchableOpacity>
+          <TouchableOpacity onPress={this.handlePaga}>
+            <Ionicons name="md-card" size={75} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
@@ -54,6 +58,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 50,
     justifyContent: 'center',
     alignItems: 'center'
   }
