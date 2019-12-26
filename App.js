@@ -23,7 +23,11 @@ export default class App extends Component {
 
     render() {
       return <Router>
-        <Scene key="root" navigationBarStyle={{ backgroundColor: '#e74c3c'}}>
+        <Scene
+          key="root"
+          navigationBarStyle={{ backgroundColor: '#e74c3c' }}
+          titleStyle={{ color: '#f5f6fa' }}
+        >
           <Scene key="login" component={LoginView} title="Login" hideNavBar/>
           <Scene
             key="categoria"
@@ -31,35 +35,36 @@ export default class App extends Component {
             title='Categorias'
             hideNavBar={false}
             type={'reset'}
-            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
+            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="#f5f6fa" />}
           />
           <Scene
             key="home"
             component={HomeView}
             title='Elegí adonde ir'
             hideNavBar={false}
-            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
+            leftButtonIconStyle={{color: 'white'}}
+            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="#f5f6fa" />}
           />
           <Scene
             key="restoDetail"
             component={RestoDetailView}
             title='Detalle'
             hideNavBar={false}
-            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
+            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="#f5f6fa" />}
           />
           <Scene
             key="reserve"
             component={ReserveView}
             title='Reservando'
             hideNavBar={false}
-            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
+            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="#f5f6fa" />}
           />
           <Scene
             key="mp"
             component={MercadoPagoView}
             title='Pagá tu reserva'
             hideNavBar={false}
-            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="gray" />}
+            renderRightButton={() => <Ionicons onPress={() => this.signOutUser()} name="md-log-out" size={32} color="#f5f6fa" />}
           />
         </Scene>
       </Router>
