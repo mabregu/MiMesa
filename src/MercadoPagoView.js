@@ -5,7 +5,7 @@ const htmlContent = `
   <br><br><br><br><br><br>
   <center>
     <a mp-mode="dftl" href="https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=95168702-b46be8f3-e84b-49da-94e3-1f7e663fd85e" name="MP-payButton" class='blue-ar-l-rn-none'>
-      <img src="https://www.mercadopago.com/org-img/Manual/ManualMP/imgs/isologoVertical.png" />
+      <img src="https://www.mercadopago.com/org-img/Manual/ManualMP/imgs/isologoVertical.png" width="100" />
     </a>
   </center>
   <script type="text/javascript">

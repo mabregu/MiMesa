@@ -43,9 +43,12 @@ export default class App extends Component {
           Luego de poner la fecha, podes pagar para confirmar Tu Mesa ;)
         </Text>
         <Button title={this.state.dateText} onPress={() => this.showDatePicker({date: this.state.date})}/>
-        <TouchableOpacity onPress={this.handlePaga}>
-          <Ionicons name="md-card" size={80} />
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity onPress={this.handlePaga}>
+              <Text>Pagar</Text>
+              <Ionicons name="md-card" size={80} />
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
